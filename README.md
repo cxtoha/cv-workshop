@@ -49,3 +49,11 @@ Når prosjektet er opprettet:
      ('2021-07-01', '2023-01-01', 'Fullstack Developer', 'Built fullstack apps with React and .NET Core.'),
      ('2023-02-01', null, 'Senior Developer', 'Currently leading a team developing a SaaS product.');
    ```
+
+## Oppsett av Backend
+
+Se README.md filen i /backend
+
+## Oppsett av Frontend
+
+Se README.md filen i /frontend
