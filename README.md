@@ -18,7 +18,7 @@
    - **Project name:** `MinCV`
    - **Database Password:** Velg et sterkt passord
      > ⚠️ Merk: Passordet kan være synlig for de du deler koden med
-   - **Region:** Central EU (Frankfurt)
+   - **Region:** North EU (Stockholm 🇸🇪)
 
 5. Klikk **Create new project**.
 
