@@ -28,7 +28,20 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+// Configure Swagger UI with custom options
+app.UseSwaggerUI(c =>
+{
+    // Customize the UI (optional)
+    c.EnableDeepLinking();
+    c.DisplayOperationId();
+});
+
+app.UseSwagger();
 
 // Aktiverer CORS-policyen som ble konfigurert over
 app.UseCors("AllowFrontend");
