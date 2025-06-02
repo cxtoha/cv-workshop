@@ -53,6 +53,8 @@ Når prosjektet er opprettet:
      ('2023-02-01', null, 'Senior Developer', 'Currently leading a team developing a SaaS product.');
    ```
 
+   Forhåpentligvis fikk du opp følgende "Success. No rows affected". Du kan deretter navigere deg til Table Editor og se at tabellen dukker opp med navnet "cv_entries"
+
 ## Oppsett av Backend
 
 Se README.md filen i /backend
