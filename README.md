@@ -60,8 +60,8 @@ Når prosjektet er opprettet:
 
 ## Oppsett av Backend
 
-Se README.md filen i /backend
+Se [README.md](https://github.com/cxberk/cv-workshop/blob/main/backend/README.md) filen i /backend
 
 ## Oppsett av Frontend
 
-Se README.md filen i /frontend
+Se [README.md](https://github.com/cxberk/cv-workshop/blob/main/frontend/README.md) filen i /frontend
