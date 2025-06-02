@@ -29,7 +29,10 @@
 Når prosjektet er opprettet:
 
 1. Gå til **SQL Editor** i menyen til venstre.
-2. Lim inn og kjør følgende SQL-script:
+   
+   <img width="198" alt="image" src="https://github.com/user-attachments/assets/f142de17-f862-4e47-bdad-7229ffbe1804" />
+
+3. Lim inn og kjør følgende SQL-script:
 
    ```sql
    create extension if not exists "uuid-ossp";
