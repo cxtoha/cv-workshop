@@ -53,7 +53,9 @@ Når prosjektet er opprettet:
      ('2023-02-01', null, 'Senior Developer', 'Currently leading a team developing a SaaS product.');
    ```
 
-   Forhåpentligvis fikk du opp følgende "Success. No rows affected". Du kan deretter navigere deg til Table Editor og se at tabellen dukker opp med navnet "cv_entries"
+   Forhåpentligvis fikk du opp følgende "Success. No rows affected". Du kan deretter navigere deg til Table Editor og se at tabellen dukker opp med navnet "cv_entries".
+   <img width="209" alt="image" src="https://github.com/user-attachments/assets/0429a191-6ad5-4c86-97b1-e8c84f3bfdb0" />
+
 
 ## Oppsett av Backend
 
