@@ -34,7 +34,7 @@ Når prosjektet er opprettet:
 
 3. Lim inn og kjør følgende SQL-script:
 
-   ```sql
+```sql
 create extension if not exists "uuid-ossp";
 
 create table public.user (
@@ -70,7 +70,7 @@ insert into public.experience (user_id, title, role, start_date, end_date, descr
 ('11111111-1111-1111-1111-111111111111', 'Senior Developer at ABC Inc', 'Senior Developer', '2019-01-01', null, 'Leading frontend team and architecting solutions.', 'https://example.com/abcinc.jpg'),
 ('22222222-2222-2222-2222-222222222222', 'Data Analyst at DataTech', 'Analyst', '2013-05-01', '2016-08-31', 'Analyzed large datasets to drive business decisions.', 'https://example.com/datatech.jpg'),
 ('22222222-2222-2222-2222-222222222222', 'Machine Learning Engineer at AI Solutions', 'ML Engineer', '2016-09-01', null, 'Built and deployed machine learning models.', 'https://example.com/aisolutions.jpg');
-   ```
+```
 
    Forhåpentligvis fikk du opp følgende "Success. No rows affected". Du kan deretter navigere deg til Table Editor og se at tabellen dukker opp med navnet "cv_entries".
 
