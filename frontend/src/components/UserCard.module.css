@@ -1,0 +1,45 @@
+.container {
+    border: 2px solid #888;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    margin: 0;
+}
+
+.userDetail {
+    margin: 4px 0;
+}
+
+.description {
+    margin: 12px 0 4px;
+}
+
+.skills {
+    margin: 4px 0;
+}
+
+.experiencesSection {
+    margin-top: 16px;
+}
+
+.experiencesTitle {
+    margin-bottom: 8px;
+}
+
+.noExperiences {
+    margin-top: 16px;
+    font-style: italic;
+}

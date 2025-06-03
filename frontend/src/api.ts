@@ -1,22 +1,29 @@
-// src/api.ts
-import { CvEntry } from "./types";
+import { User, Experience } from "./types";
 
-const API_URL = import.meta.env.VITE_API_URL;
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_URL = import.meta.env.VITE_API_URL as string;
+const API_KEY = import.meta.env.VITE_API_KEY as string;
 
-export async function fetchCvEntries(): Promise<CvEntry[]> {
-
-    console.log("API_URL:", import.meta.env.VITE_API_URL);
-    console.log("API_KEY:", import.meta.env.VITE_API_KEY);
-
-    const res = await fetch(`${API_URL}/cv-entries`, {
-        method: "GET",
+async function authorizedFetch(path: string): Promise<Response> {
+    const res = await fetch(`${API_URL}${path}`, {
         headers: {
-            'X-Frontend-Api-Key': API_KEY
-        }
+            "X-Frontend-Api-Key": API_KEY,
+            "Content-Type": "application/json",
+        },
     });
+    if (!res.ok) {
+        throw new Error(`API request failed (${res.status}): ${res.statusText}`);
+    }
+    return res;
+}
 
-    if (!res.ok) throw new Error("Failed to fetch CV entries");
-
+export async function fetchUsers(): Promise<User[]> {
+    const res = await authorizedFetch("/users");
     return res.json();
 }
+
+export async function fetchExperiences(): Promise<Experience[]> {
+    const res = await authorizedFetch("/experiences");
+    return res.json();
+}
+
+// (You can also keep fetchUserById, fetchExperienceById, fetchExperiencesForUser, etc.)

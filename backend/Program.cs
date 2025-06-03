@@ -1,6 +1,7 @@
 using CvBackendTest.Data;
 using Microsoft.EntityFrameworkCore;
 
+// Opprette builder
 var builder = WebApplication.CreateBuilder(args);
 
 // Henter tilkoblingsstreng til databasen fra secrets eller appsettings.json
@@ -67,17 +68,25 @@ app.Use(async (context, next) =>
         return;
     }
 
-    // Nøkkel er riktig → gå videre til neste middleware/route
+    // Nøkkel er riktig -> gå videre til neste middleware/route
     await next();
 });
 
-// Definerer et GET-endepunkt som returnerer alle CV-innslag sortert etter startdato
-app.MapGet("/cv-entries", async (AppDbContext db) =>
+// Definer GET-endepunkter
+app.MapGet("/users", async (AppDbContext db) =>
 {
-    var entries = await db.CvEntries
+    var users = await db.Users
+        .OrderBy(u => u.Name)
+        .ToListAsync();
+    return Results.Ok(users);
+});
+
+app.MapGet("/experiences", async (AppDbContext db) =>
+{
+    var exps = await db.Experiences
         .OrderByDescending(e => e.StartDate)
         .ToListAsync();
-    return Results.Ok(entries);
+    return Results.Ok(exps);
 });
 
 // Starter webserveren
