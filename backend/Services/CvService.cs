@@ -29,4 +29,12 @@ public class CvService(AppDbContext context) : ICvService
     {
         return await context.Experiences.FindAsync(id);
     }
+
+    public async Task<IEnumerable<Experience>> GetExperiencesByTypeAsync(string type)
+    {
+        return await context.Experiences
+            .Where(e => e.Type == type)
+            .OrderByDescending(e => e.StartDate)
+            .ToListAsync();
+    }
 }

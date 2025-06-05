@@ -18,6 +18,8 @@ namespace backend.Data.Models
 
         [Column("role")]
         public string Role { get; init; } = null!;
+        [Column("type")]
+        public string Type { get; init; } = null!;
 
         [Column("start_date")]
         public DateTime StartDate { get; init; }

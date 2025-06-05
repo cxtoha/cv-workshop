@@ -17,6 +17,9 @@ namespace backend.Data
                 .WithOne(e => e.User)
                 .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.SeedUsers();
+            modelBuilder.SeedExperiences();
         }
     }
 }

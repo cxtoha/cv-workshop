@@ -19,4 +19,4 @@
 1. For å finne igjen disse kodene senere, kjør `dotnet user-secrets list`
 1. Kjør `dotnet run`
 1. Nå kjører backenden på port 5007.
-1. Når frontenden er satt opp og kjører, sørg for at CORS-oppsettet i Program.cs matcher adressen og porten der frontenden kjører lokalt (Dette skal være http://localhost:5173)
+1. Når frontenden er satt opp og kjører, sørg for at AllowedCorsOrigins i appsettings.json inneholder de url-ene som skal få lov til å hente data fra backenden, samt porten der frontenden kjører lokalt (Dette skal være http://localhost:5173),

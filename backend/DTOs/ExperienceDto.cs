@@ -6,6 +6,7 @@ public class ExperienceDto
     public Guid UserId { get; set; }
     public string Title { get; set; } = null!;
     public string Role { get; set; } = null!;
+    public string Type { get; set; } = null!;
     public DateTime StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public string Description { get; set; } = null!;

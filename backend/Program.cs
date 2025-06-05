@@ -23,6 +23,13 @@ builder.Services.AddSwaggerServices();
 
 var app = builder.Build();
 
+// Automatisk apply databasemigrasjoner
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
 // Global Exception handling
 app.UseMiddleware<ExceptionMiddleware>();
 
@@ -33,6 +40,7 @@ app.UseSwaggerWithUi();
 app.UseCorsPolicy();
 
 // Middleware for API-nøkkelbeskyttelse
+// TODO: Skal vi ha med API-key?
 // app.UseMiddleware<ApiKeyMiddleware>();
 
 // Koble til GET-endepunkter
