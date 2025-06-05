@@ -1,5 +1,10 @@
 # CV-Workshop
 
+## Før du begyner
+
+1. Last ned .net 9.0 SDK fra [hjemmesiden](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)2
+2. Last ned npm fra [hjemmesiden](https://nodejs.org/en/download/)
+
 ## Oppsett av Supabase
 
 ### 1. Registrering
@@ -29,10 +34,10 @@
 Når prosjektet er opprettet:
 
 1. Gå til **SQL Editor** i menyen til venstre.
-   
+
    <img width="198" alt="image" src="https://github.com/user-attachments/assets/f142de17-f862-4e47-bdad-7229ffbe1804" />
 
-3. Lim inn og kjør følgende SQL-script:
+2. Lim inn og kjør følgende SQL-script:
 
 ```sql
 create extension if not exists "uuid-ossp";
@@ -72,10 +77,9 @@ insert into public.experience (user_id, title, role, start_date, end_date, descr
 ('22222222-2222-2222-2222-222222222222', 'Machine Learning Engineer at AI Solutions', 'ML Engineer', '2016-09-01', null, 'Built and deployed machine learning models.', 'https://example.com/aisolutions.jpg');
 ```
 
-   Forhåpentligvis fikk du opp følgende "Success. No rows affected". Du kan deretter navigere deg til Table Editor og se at tabellen dukker opp med navnet "cv_entries".
+Forhåpentligvis fikk du opp følgende "Success. No rows affected". Du kan deretter navigere deg til Table Editor og se at tabellen dukker opp med navnet "cv_entries".
 
    <img width="209" alt="image" src="https://github.com/user-attachments/assets/0429a191-6ad5-4c86-97b1-e8c84f3bfdb0" />
-
 
 ## Oppsett av Backend
 
