@@ -8,10 +8,10 @@ public static class ExperienceEndpoints
     public static void MapExperienceEndpoints(this WebApplication app)
     {
         // GET /experiences
-        app.MapGet("/experiences", async (ICvService svc) =>
+        app.MapGet("/experiences", async (ICvService cvService) =>
             {
-                var exps = await svc.GetAllExperiencesAsync();
-                var experienceDtos = exps
+                var experiences = await cvService.GetAllExperiencesAsync();
+                var experienceDtos = experiences
                     .Select(e => new ExperienceDto
                     {
                         Id = e.Id,
@@ -31,24 +31,24 @@ public static class ExperienceEndpoints
             .WithTags("Experiences");
 
         // GET /experiences/{id}
-        app.MapGet("/experiences/{id:guid}", async (Guid id, ICvService svc) =>
+        app.MapGet("/experiences/{id:guid}", async (Guid id, ICvService cvService) =>
             {
-                var e = await svc.GetExperienceByIdAsync(id);
-                if (e is null)
+                var experience = await cvService.GetExperienceByIdAsync(id);
+                if (experience is null)
                     return Results.NotFound();
 
-                var dto = new ExperienceDto
+                var experienceDto = new ExperienceDto
                 {
-                    Id = e.Id,
-                    UserId = e.UserId,
-                    Title = e.Title,
-                    Role = e.Role,
-                    StartDate = e.StartDate,
-                    EndDate = e.EndDate,
-                    Description = e.Description,
-                    ImageUrl = e.ImageUrl
+                    Id = experience.Id,
+                    UserId = experience.UserId,
+                    Title = experience.Title,
+                    Role = experience.Role,
+                    StartDate = experience.StartDate,
+                    EndDate = experience.EndDate,
+                    Description = experience.Description,
+                    ImageUrl = experience.ImageUrl
                 };
-                return Results.Ok(dto);
+                return Results.Ok(experienceDto);
             })
             .WithName("GetExperienceById")
             .WithTags("Experiences");

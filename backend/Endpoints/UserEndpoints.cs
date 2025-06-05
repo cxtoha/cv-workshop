@@ -8,9 +8,9 @@ public static class UserEndpoints
     public static void MapUserEndpoints(this WebApplication app)
     {
         // GET /users
-        app.MapGet("/users", async (ICvService svc) =>
+        app.MapGet("/users", async (ICvService cvService) =>
             {
-                var users = await svc.GetAllUsersAsync();
+                var users = await cvService.GetAllUsersAsync();
                 var userDtos = users
                     .Select(u => new UserDto
                     {
@@ -35,24 +35,24 @@ public static class UserEndpoints
         // GET /users/{id}
         app.MapGet("/users/{id:guid}", async (Guid id, ICvService svc) =>
             {
-                var u = await svc.GetUserByIdAsync(id);
-                if (u is null)
+                var user = await svc.GetUserByIdAsync(id);
+                if (user is null)
                     return Results.NotFound();
 
-                var dto = new UserDto
+                var userDto = new UserDto
                 {
-                    Id = u.Id,
-                    Name = u.Name,
-                    BirthDate = u.BirthDate,
-                    Address = u.Address,
-                    Phone = u.Phone,
-                    LinkedInUrl = u.LinkedInUrl,
-                    Description = u.Description,
-                    University = u.University,
-                    Skills = u.Skills,
-                    ImageUrl = u.ImageUrl
+                    Id = user.Id,
+                    Name = user.Name,
+                    BirthDate = user.BirthDate,
+                    Address = user.Address,
+                    Phone = user.Phone,
+                    LinkedInUrl = user.LinkedInUrl,
+                    Description = user.Description,
+                    University = user.University,
+                    Skills = user.Skills,
+                    ImageUrl = user.ImageUrl
                 };
-                return Results.Ok(dto);
+                return Results.Ok(userDto);
             })
             .WithName("GetUserById")
             .WithTags("Users");
