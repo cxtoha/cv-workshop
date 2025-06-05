@@ -1,93 +1,43 @@
-using CvBackendTest.Data;
+using backend.Data;
+using backend.Endpoints;
+using backend.Extensions;
+using backend.Middleware;
+using backend.Services;
 using Microsoft.EntityFrameworkCore;
 
-// Opprette builder
 var builder = WebApplication.CreateBuilder(args);
 
-// Henter tilkoblingsstreng til databasen fra secrets eller appsettings.json
+// Konfigurer Entity Framework Core og DbContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-// Henter API-nøkkel som frontend må sende med hver request
-var frontendApiKey = builder.Configuration["AppSettings:FrontendApiKey"];
-
-// Registrerer EF Core og konfigurerer PostgreSQL med tilkoblingsstrengen
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// Konfigurerer CORS slik at frontend får lov til å snakke med backend
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy
-            .WithOrigins(
-                "http://localhost:5173",   		// Vite dev-server (lokal utvikling)
-                "https://your-frontend.com" 	// Produksjon (erstatt senere)
-            )
-            .AllowAnyHeader() // Tillat alle HTTP-headere
-            .AllowAnyMethod(); // Tillat alle HTTP-metoder (GET, POST, osv.)
-    });
-});
+// Registrer CV-service
+builder.Services.AddScoped<ICvService, CvService>();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Konfigurer CORS
+builder.Services.AddCorsServices(builder.Configuration);
+
+// Konfigurer Swagger/OpenAPI
+builder.Services.AddSwaggerServices();
 
 var app = builder.Build();
 
-// Configure Swagger UI with custom options
-app.UseSwaggerUI(c =>
-{
-    // Customize the UI (optional)
-    c.EnableDeepLinking();
-    c.DisplayOperationId();
-});
+// Global Exception handling
+app.UseMiddleware<ExceptionMiddleware>();
 
-app.UseSwagger();
+// Aktiver Swagger UI
+app.UseSwaggerWithUi();
 
-// Aktiverer CORS-policyen som ble konfigurert over
-app.UseCors("AllowFrontend");
+// Aktiver CORS
+app.UseCorsPolicy();
 
-// Middleware for å beskytte API-et med API-nøkkel
-app.Use(async (context, next) =>
-{
-    // Slipper gjennom preflight-requests (OPTIONS) uten autentisering
-    if (context.Request.Method == HttpMethods.Options)
-    {
-        context.Response.StatusCode = StatusCodes.Status204NoContent;
-        return;
-    }
+// Middleware for API-nøkkelbeskyttelse
+// app.UseMiddleware<ApiKeyMiddleware>();
 
-    var expectedKey = frontendApiKey;
-    var actualKey = context.Request.Headers["X-Frontend-Api-Key"].FirstOrDefault();
+// Koble til GET-endepunkter
+app.MapUserEndpoints();
+app.MapExperienceEndpoints();
 
-    // Returner 401 hvis nøkkel mangler eller er feil
-    if (string.IsNullOrWhiteSpace(actualKey) || actualKey != expectedKey)
-    {
-        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-        await context.Response.WriteAsync("Unauthorized");
-        return;
-    }
-
-    // Nøkkel er riktig -> gå videre til neste middleware/route
-    await next();
-});
-
-// Definer GET-endepunkter
-app.MapGet("/users", async (AppDbContext db) =>
-{
-    var users = await db.Users
-        .OrderBy(u => u.Name)
-        .ToListAsync();
-    return Results.Ok(users);
-});
-
-app.MapGet("/experiences", async (AppDbContext db) =>
-{
-    var exps = await db.Experiences
-        .OrderByDescending(e => e.StartDate)
-        .ToListAsync();
-    return Results.Ok(exps);
-});
-
-// Starter webserveren
+// Kjør applikasjonen
 app.Run();
