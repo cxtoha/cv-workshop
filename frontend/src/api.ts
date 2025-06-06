@@ -26,4 +26,7 @@ export async function fetchExperiences(): Promise<Experience[]> {
   return res.json();
 }
 
-// (You can also keep fetchUserById, fetchExperienceById, fetchExperiencesForUser, etc.)
+export async function fetchExperiencesByType(type: string): Promise<Experience[]> {
+  const res = await authorizedFetch(`/experiences/type/${encodeURIComponent(type)}`);
+  return res.json();
+}

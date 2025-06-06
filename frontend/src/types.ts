@@ -3,8 +3,9 @@ export interface Experience {
     userId: string;
     title: string;
     role: string;
-    startDate: string;           // ISO date string, e.g. "2025-06-03"
-    endDate: string | null;      // ISO date string or null
+    type: string;
+    startDate: string;
+    endDate: string | null;
     description: string;
     imageUrl: string | null;
 }
@@ -12,13 +13,13 @@ export interface Experience {
 export interface User {
     id: string;
     name: string;
-    birthDate: string;           // ISO date string, e.g. "1990-06-15"
+    birthDate: string;
     address: string;
     phone: string;
     linkedInUrl: string | null;
     description: string;
     university: string;
-    skills: string;              // semicolon-separated list, e.g. "JavaScript;React;CSS;HTML"
+    skills: string;
     imageUrl: string | null;
-    experiences?: Experience[];  // populated when you fetch a user with their experiences
+    experiences?: Experience[];
 }
