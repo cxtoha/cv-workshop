@@ -3,34 +3,18 @@
 namespace backend.Data.Models
 {
     [Table("experience", Schema = "public")]
-    public class Experience
+    public record Experience(
+        [property: Column("id")] Guid Id,
+        [property: Column("user_id")] Guid UserId,
+        [property: Column("title")] string Title,
+        [property: Column("role")] string Role,
+        [property: Column("type")] string Type,
+        [property: Column("start_date")] DateTime StartDate,
+        [property: Column("end_date")] DateTime? EndDate,
+        [property: Column("description")] string Description,
+        [property: Column("image_url")] string? ImageUrl
+    )
     {
-        [Column("id")]
-        public Guid Id { get; init; }
-
-        [Column("user_id")]
-        public Guid UserId { get; init; }
-
         public User? User { get; init; }
-
-        [Column("title")]
-        public string Title { get; init; } = null!;
-
-        [Column("role")]
-        public string Role { get; init; } = null!;
-        [Column("type")]
-        public string Type { get; init; } = null!;
-
-        [Column("start_date")]
-        public DateTime StartDate { get; init; }
-
-        [Column("end_date")]
-        public DateTime? EndDate { get; init; }
-
-        [Column("description")]
-        public string Description { get; init; } = null!;
-
-        [Column("image_url")]
-        public string? ImageUrl { get; init; }
     }
 }
