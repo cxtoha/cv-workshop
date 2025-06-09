@@ -8,19 +8,18 @@ namespace backend.Data
         public static void SeedUsers(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User
-                {
-                    Id = Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                    Name = "Knut Vikler",
-                    BirthDate = new DateTime(1990, 06, 15, 0, 0, 0, DateTimeKind.Utc),
-                    Address = "Oslogata, 0278 Oslo",
-                    Phone = "+47 123 45 678",
-                    LinkedInUrl = "https://linkedin.com/in/knutvikler",
-                    Description = "Erfaren webutvikler.",
-                    University = "Universitetet i Oslo",
-                    Skills = "JavaScript;React;CSS;HTML",
-                    ImageUrl = "https://example.com/alice.jpg"
-                }
+                new User( 
+                    Id : Guid.Parse("11111111-1111-1111-1111-111111111111"), 
+                    Name : "Knut Vikler",
+                    BirthDate : new DateTime(1990, 06, 15, 0, 0, 0, DateTimeKind.Utc),
+                    Address : "Oslogata, 0278 Oslo",
+                    Phone : "+47 123 45 678",
+                    LinkedInUrl : "https://linkedin.com/in/knutvikler",
+                    Description : "Erfaren webutvikler.",
+                    University : "Universitetet i Oslo",
+                    Skills : "JavaScript;React;CSS;HTML",
+                    ImageUrl : "https://example.com/alice.jpg"
+                )
             );
         }
 
