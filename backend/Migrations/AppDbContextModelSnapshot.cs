@@ -174,8 +174,34 @@ namespace backend.Migrations
                             LinkedInUrl = "https://linkedin.com/in/knutvikler",
                             Name = "Knut Vikler",
                             Phone = "+47 123 45 678",
-                            Skills = "JavaScript;React;CSS;HTML",
+                            Skills = "JavaScript;React;CSS;HTML;TypeScript",
                             University = "Universitetet i Oslo"
+                        },
+                        new
+                        {
+                            Id = new Guid("11111111-1111-1111-1111-111111111112"),
+                            Address = "Oslogata, 0278 Oslo",
+                            BirthDate = new DateTime(1990, 6, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "Seig backendutvikler",
+                            ImageUrl = "https://example.com/alice.jpg",
+                            LinkedInUrl = "https://linkedin.com/in/computas",
+                            Name = "Comp Utas",
+                            Phone = "+47 123 45 678",
+                            Skills = "Go;TypeScript;Kotlin;Postgres",
+                            University = "Universitetet på Svalbard"
+                        },
+                        new
+                        {
+                            Id = new Guid("11111111-1111-1111-1111-111111111113"),
+                            Address = "Oslogata, 0278 Oslo",
+                            BirthDate = new DateTime(1990, 6, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Description = "Senior fullstackutvikler.",
+                            ImageUrl = "https://example.com/alice.jpg",
+                            LinkedInUrl = "https://linkedin.com/in/lsk",
+                            Name = "Kari Kanari",
+                            Phone = "+47 123 45 678",
+                            Skills = "JavaScript;React;Kotlin;CSS;HTML;TypeScript;Python",
+                            University = "NTNU"
                         });
                 });
 
