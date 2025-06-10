@@ -30,7 +30,7 @@ public static class UserEndpoints
                 {
                     var user = await svc.GetUserByIdAsync(id);
                     if (user is null)
-                        return Results.NotFound();
+                        return Results.NotFound($"Klarte ikke å finne bruker med id {id}");
 
                     var userDto = user.ToDto();
                     return Results.Ok(userDto);
