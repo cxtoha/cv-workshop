@@ -19,7 +19,31 @@ namespace backend.Data
                         LinkedInUrl: "https://linkedin.com/in/knutvikler",
                         Description: "Erfaren webutvikler.",
                         University: "Universitetet i Oslo",
-                        Skills: "JavaScript;React;CSS;HTML",
+                        Skills: "JavaScript;React;CSS;HTML;TypeScript",
+                        ImageUrl: "https://example.com/alice.jpg"
+                    ),
+                    new User(
+                        Id: Guid.Parse("11111111-1111-1111-1111-111111111112"),
+                        Name: "Comp Utas",
+                        BirthDate: new DateTime(1990, 06, 15, 0, 0, 0, DateTimeKind.Utc),
+                        Address: "Oslogata, 0278 Oslo",
+                        Phone: "+47 123 45 678",
+                        LinkedInUrl: "https://linkedin.com/in/computas",
+                        Description: "Seig backendutvikler",
+                        University: "Universitetet på Svalbard",
+                        Skills: "Go;TypeScript;Kotlin;Postgres",
+                        ImageUrl: "https://example.com/alice.jpg"
+                    ),
+                    new User(
+                        Id: Guid.Parse("11111111-1111-1111-1111-111111111113"),
+                        Name: "Kari Kanari",
+                        BirthDate: new DateTime(1990, 06, 15, 0, 0, 0, DateTimeKind.Utc),
+                        Address: "Oslogata, 0278 Oslo",
+                        Phone: "+47 123 45 678",
+                        LinkedInUrl: "https://linkedin.com/in/lsk",
+                        Description: "Senior fullstackutvikler.",
+                        University: "NTNU",
+                        Skills: "JavaScript;React;Kotlin;CSS;HTML;TypeScript;Python",
                         ImageUrl: "https://example.com/alice.jpg"
                     )
                 );
