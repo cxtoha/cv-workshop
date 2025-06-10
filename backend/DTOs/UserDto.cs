@@ -1,4 +1,6 @@
-﻿namespace backend.DTOs;
+﻿using backend.Data.Models;
+
+namespace backend.DTOs;
 
 public record UserDto(
     Guid Id,
@@ -9,6 +11,6 @@ public record UserDto(
     string? LinkedInUrl,
     string Description,
     string University,
-    string Skills,
+    IEnumerable<Skill> Skills,
     string? ImageUrl
 );

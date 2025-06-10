@@ -15,7 +15,10 @@ public static class UserMapper
             LinkedInUrl: user.LinkedInUrl,
             Description: user.Description,
             University: user.University,
-            Skills: user.Skills,
+            Skills: ParseUserSkills(user.Skills),
             ImageUrl: user.ImageUrl
         );
+
+    public static IEnumerable<Skill> ParseUserSkills(string skills) =>
+        skills.Split(";").Select(skill => new Skill(Technology: skill));
 }
