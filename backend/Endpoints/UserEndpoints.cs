@@ -1,4 +1,4 @@
-﻿using backend.DTOs;
+﻿using backend.Data.Mappers;
 using backend.Services;
 
 namespace backend.Endpoints;
@@ -13,20 +13,7 @@ public static class UserEndpoints
                 async (ICvService cvService) =>
                 {
                     var users = await cvService.GetAllUsersAsync();
-                    var userDtos = users
-                        .Select(u => new UserDto(
-                            Id: u.Id,
-                            Name: u.Name,
-                            BirthDate: u.BirthDate,
-                            Address: u.Address,
-                            Phone: u.Phone,
-                            LinkedInUrl: u.LinkedInUrl,
-                            Description: u.Description,
-                            University: u.University,
-                            Skills: u.Skills,
-                            ImageUrl: u.ImageUrl
-                        ))
-                        .ToList();
+                    var userDtos = users.Select(u => u.ToDto()).ToList();
 
                     return Results.Ok(userDtos);
                 }
@@ -43,19 +30,7 @@ public static class UserEndpoints
                     if (user is null)
                         return Results.NotFound();
 
-                    // TODO: lag en mappers mappe
-                    var userDto = new UserDto(
-                        Id: user.Id,
-                        Name: user.Name,
-                        BirthDate: user.BirthDate,
-                        Address: user.Address,
-                        Phone: user.Phone,
-                        LinkedInUrl: user.LinkedInUrl,
-                        Description: user.Description,
-                        University: user.University,
-                        Skills: user.Skills,
-                        ImageUrl: user.ImageUrl
-                    );
+                    var userDto = user.ToDto();
                     return Results.Ok(userDto);
                 }
             )
