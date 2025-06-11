@@ -144,13 +144,7 @@
     flex: 0 0 35%;
     height: auto;
   }
-  .eventCardInfoWrapper {
-    position: relative;
-    width: 65%;
-    bottom: unset;
-    align-self: flex-end;
-    padding: var(--Spacing-4, 16px);
-  }
+
   .eventInfo {
     flex-direction: column-reverse;
     gap: var(--Spacing-2, 8px);
