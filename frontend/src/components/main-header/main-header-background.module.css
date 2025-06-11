@@ -1,5 +1,5 @@
 .header-background {
-  position: fixed;
+  position: absolute;
   width: 100vw;
   height: 370px; /* Fixed height */
   top: 0;
@@ -10,7 +10,6 @@
   margin: 0;
   padding: 0;
   min-width: 100%;
-  transform: translateZ(0);
 }
 
 .header-background svg {
