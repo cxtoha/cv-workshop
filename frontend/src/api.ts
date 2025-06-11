@@ -1,4 +1,4 @@
-import { User, Experience } from "./types";
+import { User, Experience } from "./types/types";
 
 const API_URL = 'http://localhost:5007';
 

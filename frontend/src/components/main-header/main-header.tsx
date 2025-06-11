@@ -9,19 +9,19 @@ export default function MainHeader() {
       <header className={classes.header}>
         <h1 className={classes.title}>Espen Askeladd sin CV</h1>
         <div className={classes.nav}>
-          <NavLink 
-            to="/" 
+          <NavLink
+            to="/"
             className={({ isActive }) =>
-              isActive ? classes.active : undefined
+              isActive ? "cx-tab cx-tab--active" : "cx-tab"
             }
             end
           >
             Om meg
           </NavLink>
-          <NavLink 
-            to="/experiences" 
+          <NavLink
+            to="/experiences"
             className={({ isActive }) =>
-              isActive ? classes.active : undefined
+              isActive ? "cx-tab cx-tab--active" : "cx-tab"
             }
           >
             Erfaring

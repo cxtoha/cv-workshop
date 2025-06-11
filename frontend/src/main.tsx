@@ -6,10 +6,10 @@ import App from "./App";
 import "@computas/designsystem/global-styles.css";
 import { addIcons } from "@computas/designsystem/icon";
 // Import all icons you need throughout the app
-import { bin, download, time, calendar, edit, location } from "@computas/designsystem/icon/iconRegistry";
+import { bin, download, time, calendar, edit, location, laptop, star, book, down } from "@computas/designsystem/icon/iconRegistry";
 import "./index.css"; // Optional: Global styles
 
-addIcons(bin, download, time, calendar, edit, location);
+addIcons(bin, download, time, calendar, edit, location, laptop, star, book, down);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchUsers, fetchExperiences } from "../api";
-import { User, Experience } from "../types";
+import { Experience } from "../types/types";
 import styles from "./Home.module.css";
 import "../App.css";
+import teamworkImage from "../assets/teamwork.png";
 
 
 export default function Home() {
-  const [users, setUsers] = useState<User[]>([]);
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,8 +25,7 @@ export default function Home() {
     setError(null);
 
     Promise.all([fetchUsers(), fetchExperiences()])
-      .then(([usersData, expsData]) => {
-        setUsers(usersData);
+      .then(([, expsData]) => {
         setExperiences(expsData);
       })
       .catch((err) => {
@@ -47,8 +46,12 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
-      {/* <h1>About me</h1> */}
+    <div className={styles.container}>
+        <img 
+          src={teamworkImage} 
+          alt="Team collaboration illustration" 
+          className={styles.image}  
+        />
     </div>
   );
 }
