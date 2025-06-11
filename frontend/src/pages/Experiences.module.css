@@ -1,0 +1,22 @@
+
+.experiences {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between; 
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 4rem;
+
+}
+
+.loading,
+.error,
+.noExperiences {
+  text-align: center;
+  margin: 2rem 0;
+  color: #4b5563;
+}
+
+.error {
+  color: #dc2626;
+}

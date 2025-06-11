@@ -2,6 +2,7 @@ export interface Experience {
     id: string;
     userId: string;
     title: string;
+    company: string;            // Company name
     role: string;
     type: string;
     startDate: string;
