@@ -38,8 +38,6 @@ export default function Experiences() {
     return <div className={styles.noExperiences}>No experiences found.</div>;
   }
 
-  console.log(experiences);
-
   return (
     <div className={styles.experiences}>
       {experiences.map((experience) => (
