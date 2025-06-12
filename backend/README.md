@@ -6,7 +6,7 @@
 1. Velg **Type:** .NET
 1. Bla ned til Session Poolers
 1. Kopier det som står etter `"DefaultConnection":` (Skal ligne på dette `"User Id=postgres.vnaxvalknkajavkdnlskn;Password=[YOUR-PASSWORD];Server=aws-0-eu-north-1.pooler.supabase.com;Port=5432;Database=postgres"`)
-1. Lim det inn i en teksteditor (Notepad eller ExtEdit eller noe annet enkelt).
+1. Lim det inn i en teksteditor (Notepad eller TextEdit eller noe annet enkelt).
 1. Bytt ut `[YOUR-PASSWORD]` (Husk å fjerne klammeparanteser) med databasepassordet du valgte i oppsettet av Supabase
 1. I Terminalen, sørg for at du er i `cv-workshop\backend`
 1. Kjør `dotnet user-secrets set "ConnectionStrings:DefaultConnection" "<Connection String fra Supabase>"`
