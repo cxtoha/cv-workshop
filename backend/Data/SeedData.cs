@@ -107,7 +107,7 @@ namespace backend.Data
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
                         Title: "Næringslivssjef i Teknologiporten",
                         Role: "Student",
-                        Type: "Voluntary",
+                        Type: "voluntary",
                         StartDate: new DateTime(2019, 08, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2022, 06, 30, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Multidisiplinær bedriftskontakt",
@@ -119,12 +119,24 @@ namespace backend.Data
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
                         Title: "Oslo Bysykkel - Android app",
                         Role: "Student",
-                        Type: "Hobby project",
+                        Type: "hobbyProject",
                         StartDate: new DateTime(2022, 08, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2022, 10, 28, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Hobbyprosjekt for å teste API-ene til Oslo Bysykkel i Android Studio",
                         ImageUrl: "https://tellusdmsmedia.newmindmedia.com/wsimgs/4_897936618.jpg[ProductImage][4D037D0DBBC22BD05D8BF069F3]",
                         Company: null
+                    ),
+                    new Experience(
+                        Id: Guid.Parse("eeeceeee-eeee-eeee-eeee-eeeeeeeeeeea"),
+                        UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                        Title: "Assistenttrener LSK G14",
+                        Role: "Coach",
+                        Type: "coach",
+                        StartDate: new DateTime(2017, 01, 01, 0, 0, 0, DateTimeKind.Utc),
+                        EndDate: new DateTime(2017, 05, 28, 0, 0, 0, DateTimeKind.Utc),
+                        Description: "Assistenttrener for Lillestrøm gutter 14. Treninger to dager i uka.",
+                        ImageUrl: "https://g.acdn.no/obscura/API/dynamic/r1/ece5/tr_2000_2000_s_f/1738746244000/rome/2025/2/5/10/lsk-bod_glimt-19.jpg?chk=17E80E",
+                        Company: "Lillestrøm Sportsklubb"
                     )
                 );
         }
