@@ -57,19 +57,19 @@ namespace backend.Data
                     new Experience(
                         Id: Guid.Parse("cccccccc-cccc-cccc-cccc-cccccccccccc"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Sommerjobb hos Computas AS",
+                        Title: "Sommerjobb hos Computas",
                         Role: "Utvikler",
                         Type: "work",
                         StartDate: new DateTime(2011, 06, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2011, 08, 31, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Sommerjobb som utvikler hos Computas AS.",
                         ImageUrl: "https://www.proff.no/imagine/cache/7029839_fullsize.jpg",
-                        Company: "Computas"
+                        Company: "Computas AS"
                     ),
                     new Experience(
                         Id: Guid.Parse("dddddddd-dddd-dddd-dddd-dddddddddddd"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Bachelor i informatikk ved Universitetet i Oslo",
+                        Title: "Bachelor i informatikk ved UiO",
                         Role: "Student",
                         Type: "education",
                         StartDate: new DateTime(2008, 08, 01, 0, 0, 0, DateTimeKind.Utc),
@@ -81,7 +81,7 @@ namespace backend.Data
                     new Experience(
                         Id: Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Master i informatikk ved Universitetet i Oslo",
+                        Title: "Master i informatikk ved UiO",
                         Role: "Student",
                         Type: "education",
                         StartDate: new DateTime(2012, 08, 01, 0, 0, 0, DateTimeKind.Utc),
@@ -93,7 +93,7 @@ namespace backend.Data
                     new Experience(
                         Id: Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeef"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Master i Datateknologi ved Norges teknisk-naturvitenskapelige universitet",
+                        Title: "Master i Datateknologi ved NTNU",
                         Role: "Student",
                         Type: "education",
                         StartDate: new DateTime(2019, 08, 01, 0, 0, 0, DateTimeKind.Utc),
@@ -117,7 +117,7 @@ namespace backend.Data
                     new Experience(
                         Id: Guid.Parse("eeedeeee-eeee-eeee-eeee-eeeeeeeeeeea"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Oslo bysykkel-sjekker",
+                        Title: "Oslo bysykkelsjekker",
                         Role: "Student",
                         Type: "Hobby project",
                         StartDate: new DateTime(2022, 08, 01, 0, 0, 0, DateTimeKind.Utc),
