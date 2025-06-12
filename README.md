@@ -34,3 +34,7 @@ Se [README.md](https://github.com/cxberk/cv-workshop/blob/main/backend/README.md
 ## Oppsett av Frontend
 
 Se [README.md](https://github.com/cxberk/cv-workshop/blob/main/frontend/README.md) filen i /frontend
+
+## Oppgaver backend
+
+[Ligger lenger ned i README i backend](https://github.com/computas/cv-workshop/tree/main/backend#oppgaver)

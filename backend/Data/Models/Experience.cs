@@ -12,7 +12,8 @@ namespace backend.Data.Models
         [property: Column("start_date")] DateTime StartDate,
         [property: Column("end_date")] DateTime? EndDate,
         [property: Column("description")] string Description,
-        [property: Column("image_url")] string? ImageUrl
+        [property: Column("image_url")] string? ImageUrl,
+        [property: Column("company")] string? Company
     )
     {
         public User? User { get; init; }

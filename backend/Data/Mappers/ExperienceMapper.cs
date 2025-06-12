@@ -15,6 +15,7 @@ public static class ExperienceMapper
             StartDate: experience.StartDate,
             EndDate: experience.EndDate,
             Description: experience.Description,
-            ImageUrl: experience.ImageUrl
+            ImageUrl: experience.ImageUrl,
+            Company: experience.Company
         );
 }
