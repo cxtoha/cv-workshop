@@ -24,7 +24,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       <div className={styles.container}>
         <img
           className={styles.image}
-          src={akersgataImage}
+          src={experience.imageUrl || akersgataImage}
           alt={experience.title}
         />
         <div className={styles.chip}>
@@ -36,10 +36,12 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             {experience.startDate && getMonth(experience.startDate)} -{" "}
             {experience.endDate ? getMonth(experience.endDate) : "d.d"}
           </p>
-          <p className={styles.keyInfo}>
-            <CxIcon name="location" size="4" />{" "}
-            Universitetet i Oslo
-          </p>
+          {experience.company && (
+            <p className={styles.keyInfo}>
+              <CxIcon name="location" size="4" />{" "}
+              {experience.company}
+            </p>
+          )}
           <p className={styles.eventTitle}>{experience.title}</p>
         </div>
       </div>
