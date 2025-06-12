@@ -24,17 +24,7 @@ public static class UserEndpoints
             .WithTags("Users");
 
         // GET /users/{id}
-        app.MapGet(
-                "/users/{id:guid}",
-                async (Guid id, ICvService svc) =>
-                {
-                    // TODO: Oppgave 1
-
-                    return Results.Ok(); // TODO: fyll inn riktig data i ok()
-                }
-            )
-            .WithName("GetUserById")
-            .WithTags("Users");
+        // TODO: Oppgave 1: skriv et endepunkt for å hente ut riktig bruker
 
         // Retrieve all cvs that include any of the wanted skills
         app.MapPost(
