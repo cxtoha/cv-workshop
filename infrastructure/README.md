@@ -1,70 +1,122 @@
-# Infrastructure
+# Forutsetninger
 
-## Kom i gang
+### Nødvendige verktøy
 
-Last ned:
+- Installer [Windows Subsystem for Linux](https://docs.docker.com/desktop/features/wsl).
 
-- WSL
-- Git
-- Azure CLI
+- Installer [Git](https://git-scm.com/downloads) og [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt) i WSL.
+  Ikke installer de på Windows!
 
-### 1. Fork repoet
+### Fork repoet
 
 Fork dette repoet til din egen GitHub-konto (samme hvilken).
-
 Eventuelt opprett en GitHub-konto hvis du ikke har en fra før.
 
-### 2. Lag en Azure-konto
+### Lag en Azure-konto
 
 Registrer deg for en gratis Azure-konto [her](https://azure.microsoft.com/free).
 
-### 3. Autentiser deg med Azure CLI
+### Autentiser deg med Azure CLI
+
+Kjør denne kommandoen i WSL for å logge inn med Azure CLI:
 
 ```bash
 az login
 ```
 
-Følg flyten i nettleseren.
+Følg så flyten i nettleseren.
 
-### 4. Lag Terraform-state
+# Del 1: Azure og Terraform
 
-```bash
-./create-terraform-state.sh
-```
+Når man setter opp skyinfrastruktur er det sterkt anbefalt å bruke et verktøy som Terraform for å
+definere infrastrukturen som kode. Dette gjør det enklere å versjonskontrollere og gjenbruke konfigurasjonen.
+Hvis vi istedenfor bruker Azure-portalen til å sette opp infrastruktur, kan det fort bli vanskelig å holde oversikt over hva som er satt opp og hvordan.
+Dette kalles "Click-Ops", og er dårlig praksis i alt annet enn små eller uviktige prosjekter.
 
-### 5. Lag en Azure-konto for Terraform
+## 🔨 Oppgave 1.1
 
-```bash
-./create-azure-service-principal.sh
-```
+Terraform er på en måte en slags "Git for infrastruktur", og trenger dermed et sted å lagre "repoet" sitt ("state").
+State inneholder informasjon om hvilke ressurser som er opprettet, og deres tilstand.
+Azure har støtte for å lagre Terraform state i en Azure Storage Container.
 
-### 5.1. Legg til secrets i GitHub for Terraform
+Brukt skriptet `create-terraform-state.sh` for å opprette en Azure Storage Container som skal brukes til å lagre Terraform state.
 
-Du vil få ut fire verdier:
+💡 _TIPS:_ bruk syntaksen `./mitt-kule-skript.sh` for å kjøre et skript i WSL. Pass på at du er i riktig mappe først!
 
-```bash
-ARM_CLIENT_ID=...
-ARM_CLIENT_SECRET=...
-ARM_SUBSCRIPTION_ID=...
-ARM_TENANT_ID=...
-```
-
-Lagre disse inn som secrets i GitHub-repoet ditt.
-Gå til "Settings" -> "Secrets and variables" -> "Actions" -> "New repository secret".
-
-### 5.2. Legg til secrets i GitHub for backend
-
-Du har tidligere laget en connection string for Supabase og en API-nøkkel for frontend/backend.
-Lagre disse som secrets i GitHub-repoet ditt med navnene `SUPABASE_CONNECTION_STRING` og `API_KEY`.
-
-### 6. Push lokale endringer til GitHub
+<details>
+  <summary>✨ Se fasit</summary>
 
 ```bash
-git add .
-git commit -m "Lage Terraform state og Azure Service Principal"
-git push
+cd infrastructure           # bytter mappe (trengs ikke hvis du allerede er der)
+./create-terraform-state.sh # kjører skriptet
 ```
 
-### 7. Følg med på GitHub Actions
+</details>
 
-Du vil til slutt få ut en URL for frontend og backend.
+## 🔨 Oppgave 1.2
+
+Nå kan Terraform lagre state, men den trenger også tilgang til Azure for å kunne opprette ressurser.
+
+Bruk skriptet `create-azure-service-principal.sh` for å opprette en Azure Service Principal som Terraform kan bruke til å autentisere seg mot Azure.
+
+Du vil få ut fire verdier som starter med `ARM_`.
+Lagre disse som secrets i GitHub-repoet ditt, slik at de kan brukes i GitHub Actions.
+
+<details>
+  <summary>✨ Se fasit</summary>
+
+```bash
+cd infrastructure                   # bytter mappe (trengs ikke hvis du allerede er der)
+./create-azure-service-principal.sh # kjører skriptet
+```
+
+Gå til **Settings** -> **Secrets and variables** -> **Actions** -> **New repository secret**.
+Legg inn følgende secrets:
+
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_TENANT_ID`
+
+</details>
+
+##### VIKTIG!
+
+Dersom alt ble gjort riktig, skal det skal også ha blitt opprettet en fil som heter `providers.tf` i `infrastructure`-mappen.
+Denne filen inneholder konfigurasjonen som lar Terraform vite hvordan den skal bruke Azure, både for å autentisere seg og for å lagre state.
+
+# Del 2: GitHub Actions
+
+GitHub Actions er et verktøy for å automatisere arbeidsflyter i GitHub.
+I dette tilfellet skal vi bruke GitHub Actions til å kjøre Terraform-kode for å opprette infrastruktur i Azure.
+
+## 🔨 Oppgave 2.1
+
+Commit endringene i repoet ditt slik de er nå, og push de til GitHub.
+
+Se på **Actions**-fanen i repoet ditt for å se at det kjører en workflow som heter `Deploy`.
+Den vil feile siden vi ikke har lagt til alt den trenger enda.
+
+## 🔨 Oppgave 2.2
+
+Nå skal vi legge til de siste delene som trengs for å opprette infrastrukturen.
+
+Lag to secrets i GitHub-repoet ditt:
+
+- `SUPABASE_CONNECTION_STRING`: kobling til Supabase-databasen
+- `API_KEY`: Nøkkel som blir brukt av frontend/backend for å autentisere seg mot hverandre.
+
+Disse skal du ha fått fra tidligere.
+
+## 🔨 Oppgave 2.3
+
+Push endringene dine til GitHub igjen, og se at workflowen kjører og fullfører uten feil.
+
+Du vil da få ut to URL'er i loggen, én til frontend og én til backend.
+
+# Videre
+
+Alternativt kan du installere disse hvis du vil kjøre lokalt senere:
+
+- [Docker](https://docs.docker.com/desktop/features/wsl)
+- [Terraform](https://developer.hashicorp.com/terraform/install#linux)
