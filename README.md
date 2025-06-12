@@ -21,7 +21,7 @@
 
    - **Organization:** Velg organisasjonen du nettopp laget
    - **Project name:** `MinCV`
-   - **Database Password:** Velg et sterkt passord
+   - **Database Password:** Velg et sterkt passord som du husker - du trenger det snart.
      > ⚠️ Merk: Passordet kan være synlig for de du deler koden med
    - **Region:** North EU (Stockholm 🇸🇪)
 
