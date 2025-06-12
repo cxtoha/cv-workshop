@@ -9,11 +9,10 @@ public static class SwaggerExtensions
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(options =>
         {
-            options.SwaggerDoc("v1", new OpenApiInfo
-            {
-                Title = "CV-API (Minimal)",
-                Version = "v1"
-            });
+            options.SwaggerDoc(
+                "v1",
+                new OpenApiInfo { Title = "CV-API (Minimal)", Version = "v1" }
+            );
         });
     }
 
@@ -25,6 +24,7 @@ public static class SwaggerExtensions
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "CV-API V1");
             options.EnableDeepLinking();
             options.DisplayOperationId();
+            options.RoutePrefix = "";
         });
     }
 }
