@@ -38,6 +38,10 @@
   gap: var(--cx-spacing-2);
 }
 
+.companyText {
+  font-style: italic;
+}
+
 .eventTitle {
   display: -webkit-box;
   -webkit-box-orient: vertical;

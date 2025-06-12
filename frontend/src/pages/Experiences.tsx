@@ -30,6 +30,7 @@ export default function Experiences() {
     getExperiences();
   }, []);
 
+  console.log(experiences);
 
   if (loading) {
     return <div className={styles.loading}>Loading experiences...</div>;

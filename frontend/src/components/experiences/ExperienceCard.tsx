@@ -36,12 +36,10 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             {experience.startDate && getMonth(experience.startDate)} -{" "}
             {experience.endDate ? getMonth(experience.endDate) : "d.d"}
           </p>
-          {experience.company && (
-            <p className={styles.keyInfo}>
-              <CxIcon name="location" size="4" />{" "}
-              {experience.company}
-            </p>
-          )}
+          <p className={styles.keyInfo}>
+            <CxIcon name="location" size="4" />{" "}
+            {experience.company ? experience.company : "Selvstendig arbeid"}
+          </p>
           <p className={styles.eventTitle}>{experience.title}</p>
         </div>
       </div>

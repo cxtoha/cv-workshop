@@ -20,7 +20,11 @@ export interface User {
     linkedInUrl: string | null;
     description: string;
     university: string;
-    skills: string;
+    skills: Skill[];
     imageUrl: string | null;
     experiences?: Experience[];
+}
+
+export interface Skill {
+    technology: string
 }
