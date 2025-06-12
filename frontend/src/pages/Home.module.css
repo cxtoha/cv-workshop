@@ -1,23 +1,22 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 16px;
-}
-
-.heading {
-    margin-bottom: 16px;
-}
-
-.loading {
-    padding: 16px;
+.loading,
+.error {
+  text-align: center;
+  margin: 2rem 0;
+  color: #4b5563;
 }
 
 .error {
-    color: red;
-    padding: 16px;
+  color: #dc2626;
 }
 
-.noUsers {
-    margin-top: 16px;
-    font-style: italic;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 50%;
 }

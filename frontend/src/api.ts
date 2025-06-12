@@ -1,32 +1,33 @@
-import { User, Experience } from "./types";
+import { User, Experience } from "./types/types";
 
-const VITE_BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL as string;
-const VITE_BACKEND_API_KEY = import.meta.env.VITE_BACKEND_API_KEY as string;
+const API_URL = 'http://localhost:5007';
 
-async function authorizedFetch(path: string): Promise<Response> {
-  const res = await fetch(`${VITE_BACKEND_API_URL}${path}`, {
-    headers: {
-      "X-Frontend-Api-Key": VITE_BACKEND_API_KEY,
-      "Content-Type": "application/json",
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`API request failed (${res.status}): ${res.statusText}`);
+export const fetchUsers = async (): Promise<User[]> => {
+  try {
+    const response = await fetch(`${API_URL}/users`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error;
   }
-  return res;
-}
+};
 
-export async function fetchUsers(): Promise<User[]> {
-  const res = await authorizedFetch("/users");
-  return res.json();
-}
-
-export async function fetchExperiences(): Promise<Experience[]> {
-  const res = await authorizedFetch("/experiences");
-  return res.json();
-}
-
-export async function fetchExperiencesByType(type: string): Promise<Experience[]> {
-  const res = await authorizedFetch(`/experiences/type/${encodeURIComponent(type)}`);
-  return res.json();
-}
+export const fetchExperiences = async (): Promise<Experience[]> => {
+  try {
+    const response = await fetch(`${API_URL}/experiences`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching experiences:', error);
+    throw error;
+  }
+};

@@ -2,6 +2,7 @@ export interface Experience {
     id: string;
     userId: string;
     title: string;
+    company: string;            // Company name
     role: string;
     type: string;
     startDate: string;
@@ -19,7 +20,11 @@ export interface User {
     linkedInUrl: string | null;
     description: string;
     university: string;
-    skills: string;
+    skills: Skill[];
     imageUrl: string | null;
     experiences?: Experience[];
+}
+
+export interface Skill {
+    technology: string
 }

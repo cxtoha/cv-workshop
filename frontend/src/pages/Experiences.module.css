@@ -1,0 +1,41 @@
+
+.experiences {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.experiences > * {
+  width: 100%;
+  max-width: 100%;
+}
+.experiences > *:only-child {
+  justify-self: center;
+  max-width: 400px;
+}
+
+.loading,
+.error {
+  text-align: center;
+  margin: 2rem 0;
+  color: #4b5563;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.select {
+  display: flex;
+  align-self: flex-end;
+  margin-left: auto;
+  width: 200px;
+}
