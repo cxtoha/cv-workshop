@@ -24,6 +24,9 @@ Nå kjører backenden på port 5007.
 1. Gå til `http://localhost:5007/swagger` i nettleseren din, og sørg for at Swagger dukker opp.
 1. Til senere: Når frontenden er satt opp og kjører, sørg for at AllowedCorsOrigins i appsettings.json inneholder de url-ene som skal få lov til å hente data fra backenden, samt porten der frontenden kjører lokalt (Dette skal være http://localhost:5173)
 
+# Kontekst for backend
+Vi ønsker å lage endepunkt og en tjeneste som gjør det lett å hente ut brukere (Users) og erfaringer (Experiences). Dette skal frontenden koble se på og visualisere. Poenget med denne seansen er å kunne gjøre det klart for frontenden, til å hekte seg på å konsumere endepunktene vi skriver. 
+
 # Oppgaver
 Her følger oppgavene til backenddelen av innfasingsuka. Dersom du står fast så kan du be en av veilederne om hjelp, evt. så er det opprettet en branch _fasit_ som inneholder fasiten på alle oppgavene. Prøv deg frem først, før du kikker på fasiten ;)
 
