@@ -63,7 +63,8 @@ namespace backend.Data
                         StartDate: new DateTime(2011, 06, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2011, 08, 31, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Sommerjobb som utvikler hos Computas AS.",
-                        ImageUrl: "https://example.com/computas.jpg"
+                        ImageUrl: "https://example.com/computas.jpg",
+                        Company: "Computas"
                     ),
                     new Experience(
                         Id: Guid.Parse("dddddddd-dddd-dddd-dddd-dddddddddddd"),
@@ -74,7 +75,8 @@ namespace backend.Data
                         StartDate: new DateTime(2008, 08, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2012, 05, 31, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Fullførte bachelorgrad i informatikk ved Universitetet i Oslo.",
-                        ImageUrl: "https://example.com/uio_bachelor.jpg"
+                        ImageUrl: "https://koro.no/content/uploads/2016/01/bilde-012uN1buKPdh-825x550.jpg",
+                        Company: "Universitetet i Oslo"
                     ),
                     new Experience(
                         Id: Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"),
@@ -85,7 +87,44 @@ namespace backend.Data
                         StartDate: new DateTime(2012, 08, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2014, 05, 31, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Fullførte mastergrad i informatikk ved Universitetet i Oslo.",
-                        ImageUrl: "https://example.com/uio_master.jpg"
+                        ImageUrl: "https://koro.no/content/uploads/2016/01/bilde-012uN1buKPdh-825x550.jpg",
+                        Company: "Universitetet i Oslo"
+                    ),
+                    new Experience(
+                        Id: Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeef"),
+                        UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                        Title: "Master i Datateknologi ved Norges teknisk-naturvitenskapelige universitet",
+                        Role: "Student",
+                        Type: "education",
+                        StartDate: new DateTime(2019, 08, 01, 0, 0, 0, DateTimeKind.Utc),
+                        EndDate: new DateTime(2024, 06, 30, 0, 0, 0, DateTimeKind.Utc),
+                        Description: "Fullførte mastergrad i datateknologi ved NTNU Trondheim.",
+                        ImageUrl: "https://www.lifeinnorway.net/wp-content/uploads/2021/07/ntnu-trondheim-main-building.jpg",
+                        Company: "Norges teknisk-naturvitenskapelige universitet"
+                    ),
+                    new Experience(
+                        Id: Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeeb"),
+                        UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                        Title: "Næringslivssjef i Teknologiporten",
+                        Role: "Student",
+                        Type: "Voluntary",
+                        StartDate: new DateTime(2019, 08, 01, 0, 0, 0, DateTimeKind.Utc),
+                        EndDate: new DateTime(2022, 06, 30, 0, 0, 0, DateTimeKind.Utc),
+                        Description: "Multidisiplinær bedriftskontakt",
+                        ImageUrl: "https://www.lifeinnorway.net/wp-content/uploads/2021/07/ntnu-trondheim-main-building.jpg",
+                        Company: "Teknologiporten ved NTNU"
+                    ),
+                    new Experience(
+                        Id: Guid.Parse("eeedeeee-eeee-eeee-eeee-eeeeeeeeeeea"),
+                        UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                        Title: "Oslo bysykkel-sjekker",
+                        Role: "Student",
+                        Type: "Hobby project",
+                        StartDate: new DateTime(2022, 08, 01, 0, 0, 0, DateTimeKind.Utc),
+                        EndDate: new DateTime(2022, 10, 28, 0, 0, 0, DateTimeKind.Utc),
+                        Description: "Hobbyprosjekt for å teste API-ene til Oslo Bysykkel i Android Studio",
+                        ImageUrl: "https://tellusdmsmedia.newmindmedia.com/wsimgs/4_897936618.jpg[ProductImage][4D037D0DBBC22BD05D8BF069F3]",
+                        Company: null
                     )
                 );
         }

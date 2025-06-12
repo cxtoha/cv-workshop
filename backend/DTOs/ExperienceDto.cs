@@ -9,5 +9,6 @@ public record ExperienceDto(
     DateTime StartDate,
     DateTime? EndDate,
     string Description,
-    string? ImageUrl
+    string? ImageUrl,
+    string? Company
 );
