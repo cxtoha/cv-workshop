@@ -61,6 +61,7 @@ Opprett to endepunkt i ExperienceEndpoints; et for å hente alle Experiences, sa
 
 ## Oppgave 3
 _Aktuelle filer: ExperienceEndpoints.cs, CVService.cs_
+
 Fullfør endepunktet GetExperienceByType. Her tar vi inn en type erfaring (eks. work, education) og returnerer alle Experiences som er av denne typen. 
 1. Skriv ferdig endepunktet i ExperiencesEndpoints.
 2. Opprett en ny metode i CVService.cs
@@ -69,6 +70,7 @@ _Bonusoppgave for de ivrige_: Klarer du å omskrive _type_ fra å være en stren
 
 ## Oppgave 4 (mer vrien)
 _Aktuelle filer: UserEndpoints.cs, ICVService.cs, CVService.cs, UserDto.cs_
+
 Som konsulenter er ferdigheter (eng: skills) og hvilkef teknologier man har vært borti, ganske relevant. Det er ikke utenkelig at en selger ønsker å sjekke i en CV-database for å finne alle CV-er som matcher en liste med teknologier som en kunde ønsker. Dette skal vi nå modellere. Merk at skills-feltet på en User er én streng som inneholder ulike teknologier skilt med semikolon (;). 
 
 Utfør følgende oppgaver:
