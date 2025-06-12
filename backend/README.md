@@ -31,7 +31,7 @@ Her følger oppgavene til backenddelen av innfasingsuka. Dersom du står fast s�
 Du har fått utdelt et endepunkt som henter alle brukere i Users-tabellen i databasen vår. Skriv et nytt endepunkt som henter ut _én_ spesifikk bruker, gitt en ID. Bruk GetAllUsers som inspirasjon, i routeren, samt servicen.
 
 Utfør følgende oppgaver: 
-1. Legg til et GET-endepunkt i UserEndpoints.cs. Ta inn id-en (GUID) som en Route parameter. 
+1. Legg til et GET-endepunkt i UserEndpoints.cs. Ta inn id-en (type: GUID) som en Route parameter. 
 
    _HINT_ 💡: Sjekk [dokumentasjonen](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0#routing) til Minimal API. 
 2. Utvid CVService med en ny metode _GetUserByIdAsync_. Husk å oppdatere interfacet også. 
@@ -56,7 +56,7 @@ Fullfør endepunktet GetExperienceByType. Her tar vi inn en type erfaring (eks. 
 _Bonusoppgave for de ivrige_: Klarer du å omskrive _type_ fra å være en streng til en enum? Hvorfor er dette ønskelig? 
 
 ## Oppgave 4 (mer vrien)
-Som konsulenter er ferdigheter (eng: skills) og hvilke teknologier man har vært borti, ganske relevant. Det er ikke utenkelig at en selger ønsker å sjekke i en CV-database for å finne alle CV-er som matcher en liste med teknologier som en kunde ønsker. Dette skal vi nå modellere. Merk at skills-feltet på en User er én streng som inneholder ulike teknologier skilt med semikolon (;). 
+Som konsulenter er ferdigheter (eng: skills) og hvilkef teknologier man har vært borti, ganske relevant. Det er ikke utenkelig at en selger ønsker å sjekke i en CV-database for å finne alle CV-er som matcher en liste med teknologier som en kunde ønsker. Dette skal vi nå modellere. Merk at skills-feltet på en User er én streng som inneholder ulike teknologier skilt med semikolon (;). 
 
 Utfør følgende oppgaver:
 
