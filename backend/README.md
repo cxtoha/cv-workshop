@@ -27,6 +27,8 @@ Nå kjører backenden på port 5007.
 # Oppgaver
 Her følger oppgavene til backenddelen av innfasingsuka. Dersom du står fast så kan du be en av veilederne om hjelp, evt. så er det opprettet en branch _fasit_ som inneholder fasiten på alle oppgavene. Prøv deg frem først, før du kikker på fasiten ;)
 
+Merk at selv om oppgavene nevner en liste med punkter så kan det være behov for å gå litt frem og tilbake mellom kulepunktene for å fullføre oppgavene. 
+
 ## Oppgave 1
 Du har fått utdelt et endepunkt som henter alle brukere i Users-tabellen i databasen vår. Skriv et nytt endepunkt som henter ut _én_ spesifikk bruker, gitt en ID. Bruk GetAllUsers som inspirasjon, i routeren, samt servicen.
 
@@ -34,6 +36,8 @@ Utfør følgende oppgaver:
 1. Legg til et GET-endepunkt i UserEndpoints.cs. Ta inn id-en (type: GUID) som en Route parameter. 
 
    _HINT_ 💡: Sjekk [dokumentasjonen](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0#routing) til Minimal API. 
+
+Du vil etter hvert se behovet for å utvide CVService, du kan dermed gå til oppgave 2 før du fullfører 1 senere. 
 2. Utvid CVService med en ny metode _GetUserByIdAsync_. Husk å oppdatere interfacet også. 
 
    _HINT_ 💡: metoden FindAsync() kan ta inn en id og finne et 
