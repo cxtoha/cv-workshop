@@ -63,7 +63,7 @@ namespace backend.Data
                         StartDate: new DateTime(2011, 06, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2011, 08, 31, 0, 0, 0, DateTimeKind.Utc),
                         Description: "Sommerjobb som utvikler hos Computas AS.",
-                        ImageUrl: "https://example.com/computas.jpg",
+                        ImageUrl: "https://www.proff.no/imagine/cache/7029839_fullsize.jpg",
                         Company: "Computas"
                     ),
                     new Experience(
