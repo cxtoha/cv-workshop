@@ -11,13 +11,14 @@
 1. I Terminalen, sørg for at du er i `cv-workshop\backend`
 1. Kjør `dotnet user-secrets set "ConnectionStrings:DefaultConnection" "<Connection String fra Supabase>"`
    - Bytt ut `<Connection String fra Supabase>` med strengen du nå har satt sammen i teksteditoren din.
+1. For å finne denne koden senere, kjør `dotnet user-secrets list`.
 
 ### Opprette API-nøkkel:
 1. Lag en unik kode ved å kjøre kommandoen i terminalen din (Det spiller ingen rolle hvilken directory du er i):
    - Mac: `uuidgen`
    - Windows: `[guid]::NewGuid()`
 1. Kopier koden og kjør `dotnet user-secrets set "AppSettings:FrontendApiKey" "<din unike kode>"`
-1. For å finne disse kodene senere, kjør `dotnet user-secrets list`
+1. For å finne denne koden senere, kjør `dotnet user-secrets list`.
 1. Kjør `dotnet run`
 Nå kjører backenden på port 5007.
 1. Til senere: Når frontenden er satt opp og kjører, sørg for at AllowedCorsOrigins i appsettings.json inneholder de url-ene som skal få lov til å hente data fra backenden, samt porten der frontenden kjører lokalt (Dette skal være http://localhost:5173)
