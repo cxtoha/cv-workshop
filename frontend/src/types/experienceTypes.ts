@@ -17,11 +17,7 @@ export const experienceTypeMap: Record<string, ChipVariant> = {
     iconName: "book",
     text: "Utdanning",
   },
-  other: {
-    className: "cx-chip cx-chip__yellow cx-mr-6",
-    iconName: "soccer",
-    text: "Annet",
-  },
+
   voluntary: {
     className: "cx-chip cx-chip__green cx-mr-6",
     iconName: "chess",
@@ -31,5 +27,10 @@ export const experienceTypeMap: Record<string, ChipVariant> = {
     className: "cx-chip cx-chip__red cx-mr-6",
     iconName: "beer",
     text: "Hobbyprosjekt",
+  },
+  other: {
+    className: "cx-chip cx-chip__yellow cx-mr-6",
+    iconName: "soccer",
+    text: "Annet",
   },
 };

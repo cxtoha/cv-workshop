@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchUsers, fetchExperiences } from "../api";
-import { Experience } from "../types/types";
+import { Experience, User } from "../types/types";
 import styles from "./Home.module.css";
 import "../App.css";
 import teamworkImage from "../assets/teamwork.png";
@@ -8,6 +8,7 @@ import teamworkImage from "../assets/teamwork.png";
 
 export default function Home() {
   const [experiences, setExperiences] = useState<Experience[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -25,7 +26,8 @@ export default function Home() {
     setError(null);
 
     Promise.all([fetchUsers(), fetchExperiences()])
-      .then(([, expsData]) => {
+      .then(([usersData, expsData]) => {
+        setUsers(usersData);
         setExperiences(expsData);
       })
       .catch((err) => {
@@ -52,6 +54,19 @@ export default function Home() {
           alt="Team collaboration illustration" 
           className={styles.image}  
         />
+        <div className={styles.usersGrid}>
+          {users.map(user => (
+            <div key={user.id} className={styles.userCard}>
+              {user.imageUrl && (
+                <img src={user.imageUrl} alt={user.name} className={styles.userImage} />
+              )}
+              <h3>{user.name}</h3>
+              <p><strong>University:</strong> {user.university}</p>
+              <p><strong>Description:</strong> {user.description}</p>
+              <p><strong>Skills:</strong> {user.skills.map(skill => skill.technology).join(", ")}</p>
+            </div>
+          ))}
+        </div>
     </div>
   );
 }

@@ -30,8 +30,6 @@ export default function Experiences() {
     getExperiences();
   }, []);
 
-  console.log(experiences);
-
   if (loading) {
     return <div className={styles.loading}>Loading experiences...</div>;
   }
@@ -48,6 +46,19 @@ export default function Experiences() {
     const customEvent = e as CustomEvent;
     setSelectedExperience(customEvent.detail.value || null);
   };
+
+  const filteredExperiences = () => {
+    const validTypes = Object.keys(experienceTypeMap).filter(type => type !== 'other');
+
+    if (selectedExperience === 'other') {
+      return experiences.filter((experience) => !validTypes.includes(experience.type.toLowerCase()));
+    }
+    else if (selectedExperience) {
+      return experiences.filter((experience) => experience.type.toLowerCase() === selectedExperience.toLowerCase());
+    }
+    return experiences;
+  };
+    
 
   return (
     <div className={styles.container}>
@@ -66,17 +77,15 @@ export default function Experiences() {
         </label>
       </div>
       <div className={styles.experiences}>
-        {experiences
-          .filter((experience) =>
-            selectedExperience ? experience.type === selectedExperience : true
-          )
+        {filteredExperiences()
+          .sort((a, b) => {
+            return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+          })
           .map((experience) => (
             <ExperienceCard key={experience.id} experience={experience} />
           ))}
       </div>
-      {experiences.filter((experience) =>
-        selectedExperience ? experience.type === selectedExperience : true
-      ).length === 0 && (
+      {filteredExperiences().length === 0 && (
         <div className={styles.noExperiences}>Ingen erfaringer funnet</div>
       )}
     </div>
