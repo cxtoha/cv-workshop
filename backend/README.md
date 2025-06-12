@@ -1,25 +1,26 @@
 ﻿# Sett opp backend
 
+### Oppsett av ConnectionString
+1. Gå til Supabase-prosjektet ditt.
+1. Klikk på **Connect** i menyen øverst på siden.
+1. Velg **Type:** .NET
+1. Bla ned til Session Poolers
+1. Kopier det som står etter `"DefaultConnection":` (Skal ligne på dette `"User Id=postgres.vnaxvalknkajavkdnlskn;Password=[YOUR-PASSWORD];Server=aws-0-eu-north-1.pooler.supabase.com;Port=5432;Database=postgres"`)
+1. Lim det inn i en teksteditor (Notepad eller ExtEdit eller noe annet enkelt).
+1. Bytt ut `[YOUR-PASSWORD]` (Husk å fjerne klammeparanteser) med databasepassordet du valgte i oppsettet av Supabase
 1. I Terminalen, sørg for at du er i `cv-workshop\backend`
-1. Kjør `dotnet user-secrets init`.
-1. Finn ConnectionString i Supabase - i punkt 3. skal denne limes inn i en terminalkommando
-   1. Klikk på **Connect** i menyen øverst på siden.
-   2. Kopier Connection String fra Supabase
-      - Velg **Type:** .NET
-      - Bla ned til Session Poolers
-      - Kopier det som står etter `"DefaultConnection":`
-      - Skal ligne på dette `"User Id=postgres.vnaxvalknkajavkdnlskn;Password=[YOUR-PASSWORD];Server=aws-0-eu-north-1.pooler.supabase.com;Port=5432;Database=postgres"`
-   3. Kjør `dotnet user-secrets set "ConnectionStrings:DefaultConnection" "<Connection String fra Supabase>"`
-      - Bytt ut `[YOUR-PASSWORD]` (inkludert klammeparanteser) med databasepassordet du valgte i oppsettet av Supabase
-1. Lag en API-nøkkel
-   1. Lag en unik kode ved å kjøre kommandoen i terminalen din:
-      - Mac: `uuidgen`
-      - Windows: `[guid]::NewGuid()`
-   1. Kopier koden og kjør `dotnet user-secrets set "AppSettings:FrontendApiKey" "<din unike kode>"`
+1. Kjør `dotnet user-secrets set "ConnectionStrings:DefaultConnection" "<Connection String fra Supabase>"`
+   - Bytt ut `<Connection String fra Supabase>` med strengen du nå har satt sammen i teksteditoren din.
+
+### Opprette API-nøkkel:
+1. Lag en unik kode ved å kjøre kommandoen i terminalen din (Det spiller ingen rolle hvilken directory du er i):
+   - Mac: `uuidgen`
+   - Windows: `[guid]::NewGuid()`
+1. Kopier koden og kjør `dotnet user-secrets set "AppSettings:FrontendApiKey" "<din unike kode>"`
 1. For å finne disse kodene senere, kjør `dotnet user-secrets list`
 1. Kjør `dotnet run`
-1. Nå kjører backenden på port 5007.
-1. Når frontenden er satt opp og kjører, sørg for at AllowedCorsOrigins i appsettings.json inneholder de url-ene som skal få lov til å hente data fra backenden, samt porten der frontenden kjører lokalt (Dette skal være http://localhost:5173),
+Nå kjører backenden på port 5007.
+1. Når frontenden er satt opp og kjører, sørg for at AllowedCorsOrigins i appsettings.json inneholder de url-ene som skal få lov til å hente data fra backenden, samt porten der frontenden kjører lokalt (Dette skal være http://localhost:5173)
 
 # Oppgaver
 Her følger oppgavene til backenddelen av innfasingsuka. Dersom du står fast så kan du be en av veilederne om hjelp, evt. så er det opprettet en branch _fasit_ som inneholder fasiten på alle oppgavene. Prøv deg frem først, før du kikker på fasiten ;)
