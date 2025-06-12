@@ -30,14 +30,20 @@ Du har fått utdelt et endepunkt som henter alle brukere i Users-tabellen i data
 Utfør følgende oppgaver: 
 1. Legg til et GET-endepunkt i UserEndpoints.cs. Ta inn id-en (GUID) som en Route parameter. 
 
-   _HINT_ 💡: Sjekk [dokumentasjonen](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0)
+   _HINT_ 💡: Sjekk [dokumentasjonen](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0#routing) til Minimal API. 
 2. Utvid CVService med en ny metode _GetUserByIdAsync_. Husk å oppdatere interfacet også. 
-   _HINT_: FindAsync(id)
-3. Dersom ingen bruker finnes med gitt id, returner en 404 Not Found med en beskrivende feilmelding. 
-4. Test endepunktet i Swagger og sjekk at du får forventet respons - både med en eksisterende id og en ikke-eksisterende. 
+
+   _HINT_ 💡: metoden FindAsync() kan ta inn en id og finne et 
+4. Dersom ingen bruker finnes med gitt id, returner en 404 Not Found med en beskrivende feilmelding. 
+5. Test endepunktet i Swagger og sjekk at du får forventet respons - både med en eksisterende id og en ikke-eksisterende. 
 
 ## Oppgave 2
-Opprett to endepunkt i ExperienceEndpoints; et for å hente alle Experiences, samt et for å hente ut en gitt Experience basert på id. Endepunktene kommer til å ligne en del på de du har skrevet tidligere i oppbyggingen, men poenget er her å trene på å opprette en ny Mapper for Experiences. 
+Opprett to endepunkt i ExperienceEndpoints; et for å hente alle Experiences, samt et for å hente ut en gitt Experience basert på id. Endepunktene kommer til å ligne en del på de du har skrevet tidligere i oppbyggingen. Men, du skal nå også skrive en mapper for Experiences der du mapper databasemodellen til en DTO. 
+
+1. Opprett en fil, ExperienceMapper i mappen Mappers. Denne skal bestå av en statisk klasse med en statisk metode _ToDto_ som returnerer en ExperienceDto.
+2. Fullfør metodene _GetAllExperiencesAsync_ og _GetExperienceByIdAsync_ i CVService. 
+3. Fullfør de to TODO-ene i ExperienceEndpoints.
+4. Test endepunktene i Swagger og sjekk at metodene returner en ikke-tom liste med Experiences. 
 
 ## Oppgave 3
 Fullfør endepunktet GetExperienceByType. Her tar vi inn en type erfaring (eks. work, education) og returnerer alle Experiences som er av denne typen. 
