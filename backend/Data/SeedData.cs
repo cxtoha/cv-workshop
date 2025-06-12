@@ -69,24 +69,24 @@ namespace backend.Data
                     new Experience(
                         Id: Guid.Parse("dddddddd-dddd-dddd-dddd-dddddddddddd"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Bachelor i informatikk ved UiO",
+                        Title: "Bachelor i Informatikk ved UiO",
                         Role: "Student",
                         Type: "education",
                         StartDate: new DateTime(2008, 08, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2012, 05, 31, 0, 0, 0, DateTimeKind.Utc),
-                        Description: "Fullførte bachelorgrad i informatikk ved Universitetet i Oslo.",
+                        Description: "Fullførte bachelorgrad i Informatikk ved Universitetet i Oslo.",
                         ImageUrl: "https://koro.no/content/uploads/2016/01/bilde-012uN1buKPdh-825x550.jpg",
                         Company: "Universitetet i Oslo"
                     ),
                     new Experience(
                         Id: Guid.Parse("eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Master i informatikk ved UiO",
+                        Title: "Master i Informatikk ved UiO",
                         Role: "Student",
                         Type: "education",
                         StartDate: new DateTime(2012, 08, 01, 0, 0, 0, DateTimeKind.Utc),
                         EndDate: new DateTime(2014, 05, 31, 0, 0, 0, DateTimeKind.Utc),
-                        Description: "Fullførte mastergrad i informatikk ved Universitetet i Oslo.",
+                        Description: "Fullførte mastergrad i Informatikk ved Universitetet i Oslo.",
                         ImageUrl: "https://koro.no/content/uploads/2016/01/bilde-012uN1buKPdh-825x550.jpg",
                         Company: "Universitetet i Oslo"
                     ),
@@ -117,7 +117,7 @@ namespace backend.Data
                     new Experience(
                         Id: Guid.Parse("eeedeeee-eeee-eeee-eeee-eeeeeeeeeeea"),
                         UserId: Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Title: "Oslo bysykkelsjekker",
+                        Title: "Oslo Bysykkel - Android app",
                         Role: "Student",
                         Type: "Hobby project",
                         StartDate: new DateTime(2022, 08, 01, 0, 0, 0, DateTimeKind.Utc),
