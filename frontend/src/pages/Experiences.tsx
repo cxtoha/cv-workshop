@@ -1,44 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Experience } from "../types/types";
 import styles from "./Experiences.module.css";
-import { fetchExperiences } from "../api";
 import { ExperienceCard } from "../components/experiences/ExperienceCard";
 import { CxOption, CxSelect } from "@computas/designsystem/select/react";
 
 import { experienceTypeMap } from '../types/experienceTypes';
+import { useExperiences } from "../hooks/useExperiences";
 
 export default function Experiences() {
-  const [experiences, setExperiences] = useState<Experience[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [selectedExperience, setSelectedExperience] = useState<string | null>(null); // Track selected filter type
 
-  useEffect(() => {
-    async function getExperiences() {
-      try {
-        const data = await fetchExperiences();
-        setExperiences(data);
-        setError(null);
-      } catch (err) {
-        console.log(err);
-        setError("Failed to load experiences. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    }
+  const { data: experiences, isLoading, error } = useExperiences();
 
-    getExperiences();
-  }, []);
-
-  if (loading) {
+  if (isLoading) {
     return <div className={styles.loading}>Loading experiences...</div>;
   }
 
   if (error) {
-    return <div className={styles.error}>{error}</div>;
+    return <div className={styles.error}>Failed to load experiences. Please try again later.</div>;
   }
 
-  if (experiences.length === 0) {
+  if (!experiences || experiences.length === 0) {
     return <div className={styles.noExperiences}>No experiences found.</div>;
   }
 
