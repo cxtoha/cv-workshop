@@ -2,10 +2,16 @@
 
 ### Nødvendige verktøy
 
+#### Windows
+
 - Installer [Windows Subsystem for Linux](https://docs.docker.com/desktop/features/wsl).
 
 - Installer [Git](https://git-scm.com/downloads) og [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt) i WSL.
   Ikke installer de på Windows!
+
+#### macOS
+
+- Installer [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest).
 
 ### Fork repoet
 
@@ -18,7 +24,7 @@ Registrer deg for en gratis Azure-konto [her](https://azure.microsoft.com/free).
 
 ### Autentiser deg med Azure CLI
 
-Kjør denne kommandoen i WSL for å logge inn med Azure CLI:
+Kjør denne kommandoen i terminalen for å logge inn med Azure CLI:
 
 ```bash
 az login
@@ -41,7 +47,7 @@ Azure har støtte for å lagre Terraform state i en Azure Storage Container.
 
 Brukt skriptet `create-terraform-state.sh` for å opprette en Azure Storage Container som skal brukes til å lagre Terraform state.
 
-💡 _TIPS:_ bruk syntaksen `./mitt-kule-skript.sh` for å kjøre et skript i WSL. Pass på at du er i riktig mappe først!
+💡 _TIPS:_ bruk syntaksen `./mitt-kule-skript.sh` for å kjøre et skript i terminalen. Pass på at du er i riktig mappe først!
 
 <details>
   <summary>✨ Se fasit</summary>
