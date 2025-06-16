@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Experience } from "../types/types";
 import styles from "./Experiences.module.css";
 import { ExperienceCard } from "../components/experiences/ExperienceCard";
 import { CxOption, CxSelect } from "@computas/designsystem/select/react";
 
-import { experienceTypeMap } from '../types/experienceTypes';
+import { experienceTypeMap } from "../types/experienceTypes";
 import { useExperiences } from "../hooks/useExperiences";
 
 export default function Experiences() {
-  const [selectedExperience, setSelectedExperience] = useState<string | null>(null); // Track selected filter type
+  const [selectedExperience, setSelectedExperience] = useState<string | null>(
+    null
+  );
 
+  // TODO Oppgave 1.1 of 1.2: Håndter loading og error av erfaringer
   const { data: experiences, isLoading, error } = useExperiences();
 
   if (isLoading) {
@@ -17,7 +19,11 @@ export default function Experiences() {
   }
 
   if (error) {
-    return <div className={styles.error}>Failed to load experiences. Please try again later.</div>;
+    return (
+      <div className={styles.error}>
+        Failed to load experiences. Please try again later.
+      </div>
+    );
   }
 
   if (!experiences || experiences.length === 0) {
@@ -26,21 +32,27 @@ export default function Experiences() {
 
   const handleSelectChange = (e: Event) => {
     const customEvent = e as CustomEvent;
+    // TODO Oppgave 5.1: Filtrer experiences etter type
     setSelectedExperience(customEvent.detail.value || null);
   };
 
   const filteredExperiences = () => {
-    const validTypes = Object.keys(experienceTypeMap).filter(type => type !== 'other');
+    const validTypes = Object.keys(experienceTypeMap).filter(
+      (type) => type !== "other"
+    );
 
-    if (selectedExperience === 'other') {
-      return experiences.filter((experience) => !validTypes.includes(experience.type.toLowerCase()));
-    }
-    else if (selectedExperience) {
-      return experiences.filter((experience) => experience.type.toLowerCase() === selectedExperience.toLowerCase());
+    if (selectedExperience === "other") {
+      return experiences.filter(
+        (experience) => !validTypes.includes(experience.type.toLowerCase())
+      );
+    } else if (selectedExperience) {
+      return experiences.filter(
+        (experience) =>
+          experience.type.toLowerCase() === selectedExperience.toLowerCase()
+      );
     }
     return experiences;
   };
-    
 
   return (
     <div className={styles.container}>
@@ -59,9 +71,13 @@ export default function Experiences() {
         </label>
       </div>
       <div className={styles.experiences}>
+        {/*TODO Oppgave 3.1: Vis alle erfaringene*/}
+        {/* TODO Oppgave 4.1: Sorter erfaringene*/}
         {filteredExperiences()
           .sort((a, b) => {
-            return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+            return (
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+            );
           })
           .map((experience) => (
             <ExperienceCard key={experience.id} experience={experience} />
