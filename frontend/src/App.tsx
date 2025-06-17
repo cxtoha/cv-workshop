@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Experiences from './pages/Experiences';
-import MainHeader from './components/main-header/main-header';
-import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainHeader from "./components/main-header/main-header";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -11,7 +11,8 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/experiences" element={<Experiences />} />
+            {/*TODO Oppgave 1.1: Legg til en ny route i App.tsx for Erfaringer*/}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </div>

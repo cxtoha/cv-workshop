@@ -1,52 +1,46 @@
-import { useState, useEffect } from "react";
-import { Experience } from "../types/types";
+import { useState } from "react";
 import styles from "./Experiences.module.css";
-import { fetchExperiences } from "../api";
 import { ExperienceCard } from "../components/experiences/ExperienceCard";
 import { CxOption, CxSelect } from "@computas/designsystem/select/react";
 
-import { experienceTypeMap } from '../types/experienceTypes';
+import { experienceTypeMap } from "../types/experienceTypes";
+import { useExperiences } from "../hooks/useExperiences";
 
 export default function Experiences() {
-  const [experiences, setExperiences] = useState<Experience[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [selectedExperience, setSelectedExperience] = useState<string | null>(null); // Track selected filter type
+  const [selectedExperience, setSelectedExperience] = useState<string | null>(
+    null
+  );
 
-  useEffect(() => {
-    async function getExperiences() {
-      try {
-        const data = await fetchExperiences();
-        setExperiences(data);
-        setError(null);
-      } catch (err) {
-        console.log(err);
-        setError("Failed to load experiences. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    }
+  // TODO Oppgave 1.1 of 1.2: Håndter loading og error av erfaringer
+  const { data: experiences } = useExperiences();
 
-    getExperiences();
-  }, []);
-
-  console.log(experiences);
-
-  if (loading) {
-    return <div className={styles.loading}>Loading experiences...</div>;
-  }
-
-  if (error) {
-    return <div className={styles.error}>{error}</div>;
-  }
-
-  if (experiences.length === 0) {
+  if (!experiences || experiences.length === 0) {
     return <div className={styles.noExperiences}>No experiences found.</div>;
   }
 
   const handleSelectChange = (e: Event) => {
     const customEvent = e as CustomEvent;
-    setSelectedExperience(customEvent.detail.value || null);
+    const selectedFilter = customEvent.detail.value;
+    console.log(selectedFilter);
+    // TODO Oppgave 5.1: Filtrer experiences etter type
+  };
+
+  const filteredExperiences = () => {
+    const validTypes = Object.keys(experienceTypeMap).filter(
+      (type) => type !== "other"
+    );
+
+    if (selectedExperience === "other") {
+      return experiences.filter(
+        (experience) => !validTypes.includes(experience.type.toLowerCase())
+      );
+    } else if (selectedExperience) {
+      return experiences.filter(
+        (experience) =>
+          experience.type.toLowerCase() === selectedExperience.toLowerCase()
+      );
+    }
+    return experiences;
   };
 
   return (
@@ -66,19 +60,9 @@ export default function Experiences() {
         </label>
       </div>
       <div className={styles.experiences}>
-        {experiences
-          .filter((experience) =>
-            selectedExperience ? experience.type === selectedExperience : true
-          )
-          .map((experience) => (
-            <ExperienceCard key={experience.id} experience={experience} />
-          ))}
+        {/*TODO Oppgave 3.1: Vis alle erfaringene*/}
+        {/* TODO Oppgave 4.1: Sorter erfaringene*/}
       </div>
-      {experiences.filter((experience) =>
-        selectedExperience ? experience.type === selectedExperience : true
-      ).length === 0 && (
-        <div className={styles.noExperiences}>Ingen erfaringer funnet</div>
-      )}
     </div>
   );
 }
