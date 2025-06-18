@@ -12,27 +12,29 @@ public class CvService(AppDbContext context) : ICvService
         return await context.Users.OrderBy(u => u.Name).ToListAsync();
     }
 
-    // TODO: Oppgave 1
+    public async Task<User?> GetUserByIdAsync(Guid id)
+    {
+        return await context.Users.FindAsync(id);
+    }
 
     public async Task<IEnumerable<Experience>> GetAllExperiencesAsync()
     {
-        // TODO: Oppgave 2
-        return [];
+        return await context.Experiences.OrderByDescending(e => e.StartDate).ToListAsync();
     }
 
     public async Task<Experience?> GetExperienceByIdAsync(Guid id)
     {
-        // TODO: Oppgave 2
-
-        return null;
+        return await context.Experiences.FindAsync(id);
     }
 
     public async Task<IEnumerable<Experience>> GetExperiencesByTypeAsync(string type)
     {
-        // TODO: Oppgave 3
-
-        return [];
+        return await context.Experiences.Where(e => e.Type == type).OrderByDescending(e => e.StartDate).ToListAsync();
     }
 
     // TODO: Oppgave 4 ny metode (husk å legge den til i interfacet)
+/*     public async Task<IEnumerable<User>> GetUserWithDesiredSkills()
+    {
+        return [];
+    } */
 }
