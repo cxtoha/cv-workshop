@@ -32,9 +32,16 @@ public class CvService(AppDbContext context) : ICvService
         return await context.Experiences.Where(e => e.Type == type).OrderByDescending(e => e.StartDate).ToListAsync();
     }
 
-    // TODO: Oppgave 4 ny metode (husk å legge den til i interfacet)
-/*     public async Task<IEnumerable<User>> GetUserWithDesiredSkills()
+    public async Task<IEnumerable<User>> GetUsersWithDesiredSkills(IEnumerable<string> desiredTechnologies)
     {
-        return [];
-    } */
+        var allUsers = await GetAllUsersAsync();
+        var usersWithDesiredSkills = allUsers
+            .Where(user => UserMapper
+            .ParseUserSkills(user.Skills)
+            .Any(skill => desiredTechnologies
+                .Select(tech => tech.ToLower())
+                .Contains(skill.Technology.ToLower())
+            ));
+        return usersWithDesiredSkills;
+    }
 }

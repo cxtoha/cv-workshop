@@ -21,7 +21,7 @@
 1. For å finne denne koden senere, kjør `dotnet user-secrets list`.
 1. Kjør `dotnet run`
 Nå kjører backenden på port 5007.
-1. Gå til `http://localhost:5007/swagger` i nettleseren din, og sørg for at Swagger dukker opp.
+1. Gå til `http://localhost:5007/` i nettleseren din, og sørg for at Swagger dukker opp.
 1. Til senere: Når frontenden er satt opp og kjører, sørg for at AllowedCorsOrigins i appsettings.json inneholder de url-ene som skal få lov til å hente data fra backenden, samt porten der frontenden kjører lokalt (Dette skal være http://localhost:5173)
 
 # Kontekst for backend
@@ -71,7 +71,7 @@ _Bonusoppgave for de ivrige_: Klarer du å omskrive _type_ fra å være en stren
 ## Oppgave 4 (mer vrien)
 _Aktuelle filer: UserEndpoints.cs, ICVService.cs, CVService.cs, UserDto.cs_
 
-Som konsulenter er ferdigheter (eng: skills) og hvilkef teknologier man har vært borti, ganske relevant. Det er ikke utenkelig at en selger ønsker å sjekke i en CV-database for å finne alle CV-er som matcher en liste med teknologier som en kunde ønsker. Dette skal vi nå modellere. Merk at skills-feltet på en User er én streng som inneholder ulike teknologier skilt med semikolon (;). 
+Som konsulenter er ferdigheter (eng: skills) og hvilke teknologier man har vært borti, ganske relevant. Det er ikke utenkelig at en selger ønsker å sjekke i en CV-database for å finne alle CV-er som matcher en liste med teknologier som en kunde ønsker. Dette skal vi nå modellere. Merk at skills-feltet på en User er én streng som inneholder ulike teknologier skilt med semikolon (;). 
 
 Utfør følgende oppgaver:
 
